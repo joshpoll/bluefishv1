@@ -21,7 +21,8 @@
   "namespace": true,
   "bs-dependencies": [
     "reason-react",
-    "bs-kiwi"
+    "bs-kiwi",
+    "@glennsl/bs-json"
   ],
   "refmt": 3
 }
