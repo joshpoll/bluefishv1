@@ -293,3 +293,16 @@ module Layout = {
     }
   }
 }
+
+exception TODO
+
+let render = ({variables, constraints, glyphs} as system) => {
+  // Layout with KiwiBBox, then lower all the way to Kiwi, then solve.
+  let varValues =
+    system->Layout.system->KiwiBBox.Lower.system->KiwiMax.Lower.system->KiwiInterface.solve
+
+  // Feed solver output to glyph encodings.
+  //   Make the `encoding` string a function body that takes bbox fields as arguments. Call it with
+  //    the bbox values returned by Kiwi. Use eval with Babel so it can handle JSX: https://stackoverflow.com/questions/33225951/evaling-code-with-jsx-syntax-in-it
+  // Concatenate all the glyphs and return a React element
+}
